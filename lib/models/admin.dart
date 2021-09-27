@@ -19,14 +19,14 @@ class Admin {
   Admin copyWith({
     CustomUser? customuser,
     int? id,
-    String? profile_pic,
+    String? profilePic,
     String? gender,
     String? address,
   }) {
     return Admin(
       customuser: customuser ?? this.customuser,
       id: id ?? this.id,
-      profilePic: profile_pic ?? this.profilePic,
+      profilePic: profilePic ?? this.profilePic,
       gender: gender ?? this.gender,
       address: address ?? this.address,
     );

@@ -5,15 +5,15 @@ class CustomUser {
   final String username;
   final String email;
   final String password;
-  final String first_name;
-  final String last_name;
+  final String firstName;
+  final String lastName;
   CustomUser({
     required this.id,
     required this.username,
     required this.email,
     required this.password,
-    required this.first_name,
-    required this.last_name,
+    required this.firstName,
+    required this.lastName,
   });
 
   CustomUser copyWith({
@@ -21,16 +21,16 @@ class CustomUser {
     String? username,
     String? email,
     String? password,
-    String? first_name,
-    String? last_name,
+    String? firstName,
+    String? lastName,
   }) {
     return CustomUser(
       id: id ?? this.id,
       username: username ?? this.username,
       email: email ?? this.email,
       password: password ?? this.password,
-      first_name: first_name ?? this.first_name,
-      last_name: last_name ?? this.last_name,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
     );
   }
 
@@ -40,8 +40,8 @@ class CustomUser {
       'username': username,
       'email': email,
       'password': password,
-      'first_name': first_name,
-      'last_name': last_name,
+      'first_name': firstName,
+      'last_name': lastName,
     };
   }
 
@@ -51,8 +51,8 @@ class CustomUser {
       username: map['username'],
       email: map['email'],
       password: map['password'],
-      first_name: map['first_name'],
-      last_name: map['last_name'],
+      firstName: map['first_name'],
+      lastName: map['last_name'],
     );
   }
 
@@ -63,7 +63,7 @@ class CustomUser {
 
   @override
   String toString() {
-    return 'CustomUser(id: $id, username: $username, email: $email, password: $password, first_name: $first_name, last_name: $last_name)';
+    return 'CustomUser(id: $id, username: $username, email: $email, password: $password, first_name: $firstName, last_name: $lastName)';
   }
 
   @override
@@ -75,8 +75,8 @@ class CustomUser {
         other.username == username &&
         other.email == email &&
         other.password == password &&
-        other.first_name == first_name &&
-        other.last_name == last_name;
+        other.firstName == firstName &&
+        other.lastName == lastName;
   }
 
   @override
@@ -85,7 +85,7 @@ class CustomUser {
         username.hashCode ^
         email.hashCode ^
         password.hashCode ^
-        first_name.hashCode ^
-        last_name.hashCode;
+        firstName.hashCode ^
+        lastName.hashCode;
   }
 }
