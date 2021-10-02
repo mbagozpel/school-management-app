@@ -90,7 +90,7 @@ class Header extends StatelessWidget {
                     const VerticalDivider(
                       color: Colors.black,
                     ),
-                    Text(adminSideBar[controller.selectedIndex].title)
+                    Text(staffSideBar[controller.selectedIndex].title)
                   ],
                 );
               },

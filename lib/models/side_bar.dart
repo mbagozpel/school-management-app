@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:school_management_app/models/manage_class.dart';
+import 'package:school_management_app/views/admin/manage_class.dart';
 import 'package:school_management_app/views/admin/add_class.dart';
 import 'package:school_management_app/views/admin/add_session.dart';
 import 'package:school_management_app/views/admin/add_staff/add_staff.dart';
@@ -16,6 +16,13 @@ import 'package:school_management_app/views/admin/staff_permission.dart';
 import 'package:school_management_app/views/admin/student_feedback.dart';
 import 'package:school_management_app/views/admin/student_permission.dart';
 import 'package:school_management_app/views/admin/view_attendance.dart';
+import 'package:school_management_app/views/staff/add_result.dart';
+import 'package:school_management_app/views/staff/create_assignment.dart';
+import 'package:school_management_app/views/staff_suggestion.dart';
+import 'package:school_management_app/views/staff/take_attendance.dart';
+import 'package:school_management_app/views/take_permission.dart';
+import 'package:school_management_app/views/staff/update_attendance.dart';
+import 'package:school_management_app/views/student/student_view_attendance.dart';
 
 class SideBarModel {
   final String title;
@@ -99,24 +106,51 @@ List<SideBarModel> adminSideBar = [
 
 List<SideBarModel> staffSideBar = [
   const SideBarModel(
-      title: 'Home', widget: Dashboard(), icon: FontAwesomeIcons.home),
+      title: 'Staff', widget: Dashboard(), icon: FontAwesomeIcons.home),
   const SideBarModel(
       title: 'Take Attendance',
-      widget: Dashboard(),
+      widget: TakeAttendance(),
       icon: FontAwesomeIcons.userCheck),
   const SideBarModel(
-      title: 'Update Attendance',
-      widget: Dashboard(),
+      title: 'Manage Attendance',
+      widget: ManageAttendance(),
       icon: FontAwesomeIcons.userCircle),
   const SideBarModel(
-      title: 'Take Permission',
-      widget: Dashboard(),
+      title: 'Create Assignment', widget: Assignment(), icon: Icons.assessment),
+  const SideBarModel(
+      title: 'Permission Request',
+      widget: PermissionRequest(),
       icon: FontAwesomeIcons.freeCodeCamp),
   const SideBarModel(
-      title: 'Comments', widget: Dashboard(), icon: FontAwesomeIcons.comment),
+      title: 'Suggestions',
+      widget: StaffSuggestions(),
+      icon: FontAwesomeIcons.comment),
   const SideBarModel(
       title: 'Add Result',
-      widget: Dashboard(),
+      widget: AddResult(),
+      icon: FontAwesomeIcons.bookReader),
+  const SideBarModel(
+      title: 'Notifications', widget: Dashboard(), icon: Icons.notifications)
+];
+
+List<SideBarModel> studentSideBar = [
+  const SideBarModel(
+      title: 'Student', widget: Dashboard(), icon: FontAwesomeIcons.home),
+  const SideBarModel(
+      title: 'View Attendance',
+      widget: StudentViewAttendance(),
+      icon: FontAwesomeIcons.userCheck),
+  const SideBarModel(
+      title: 'Permission Request',
+      widget: PermissionRequest(),
+      icon: FontAwesomeIcons.freeCodeCamp),
+  const SideBarModel(
+      title: 'Complains',
+      widget: StaffSuggestions(),
+      icon: FontAwesomeIcons.comment),
+  const SideBarModel(
+      title: 'View Result',
+      widget: AddResult(),
       icon: FontAwesomeIcons.bookReader),
   const SideBarModel(
       title: 'Notifications', widget: Dashboard(), icon: Icons.notifications)

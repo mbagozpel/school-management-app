@@ -12,5 +12,11 @@ InputDecorationTheme inputDecor() {
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
     ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
   );
 }

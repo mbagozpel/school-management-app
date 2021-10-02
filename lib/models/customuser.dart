@@ -1,19 +1,19 @@
 import 'dart:convert';
 
 class CustomUser {
-  final int id;
-  final String username;
-  final String email;
-  final String password;
-  final String firstName;
-  final String lastName;
+  int id;
+  String username;
+  String email;
+  String password;
+  String firstName;
+  String lastName;
   CustomUser({
-    required this.id,
-    required this.username,
-    required this.email,
-    required this.password,
-    required this.firstName,
-    required this.lastName,
+    this.id = 0,
+    this.username = '',
+    this.email = '',
+    this.password = '',
+    this.firstName = '',
+    this.lastName = '',
   });
 
   CustomUser copyWith({

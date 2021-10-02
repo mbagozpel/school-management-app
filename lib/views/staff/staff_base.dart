@@ -7,9 +7,9 @@ import 'package:school_management_app/utils/responsive.dart';
 
 import 'package:school_management_app/widgets/sidebar.dart';
 
-class AdminBase extends StatelessWidget {
+class StaffBase extends StatelessWidget {
   // final Widget? widget;
-  const AdminBase({
+  const StaffBase({
     Key? key,
   }) : super(key: key);
 
@@ -17,7 +17,7 @@ class AdminBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         key: menuController.scaffoldKey,
-        drawer: SideBar(sideBarList: adminSideBar),
+        drawer: SideBar(sideBarList: staffSideBar),
         body: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           // side menu only for desktop
@@ -25,7 +25,7 @@ class AdminBase extends StatelessWidget {
             if (Responsive.isDesktop(context))
               Expanded(
                   child: SideBar(
-                sideBarList: adminSideBar,
+                sideBarList: staffSideBar,
               )),
             GetBuilder<CustomPageController>(
               init: CustomPageController(),
@@ -33,7 +33,7 @@ class AdminBase extends StatelessWidget {
               builder: (controller) {
                 return Expanded(
                     flex: 5,
-                    child: adminSideBar[controller.selectedIndex].widget!);
+                    child: staffSideBar[controller.selectedIndex].widget!);
               },
             )
           ],

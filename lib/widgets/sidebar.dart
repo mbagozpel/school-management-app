@@ -5,8 +5,9 @@ import 'package:school_management_app/constants/colors.dart';
 import 'package:school_management_app/models/side_bar.dart';
 import 'package:school_management_app/widgets/drawer_list_tile.dart';
 
-class AdminSideBar extends StatelessWidget {
-  const AdminSideBar({Key? key}) : super(key: key);
+class SideBar extends StatelessWidget {
+  final List<SideBarModel> sideBarList;
+  const SideBar({Key? key, required this.sideBarList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class AdminSideBar extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                   itemBuilder: (context, index) => DrawerListTile(
-                        model: adminSideBar[index],
+                        model: sideBarList[index],
                         index: index,
                       ),
                   separatorBuilder: (context, index) => const Divider(
@@ -36,7 +37,7 @@ class AdminSideBar extends StatelessWidget {
                         thickness: 1,
                         color: Color(0xFFBDBDBD),
                       ),
-                  itemCount: adminSideBar.length),
+                  itemCount: sideBarList.length),
             )
           ],
         ),

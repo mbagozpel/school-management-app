@@ -1,36 +1,49 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'customuser.dart';
 
+// class for registering staff, I used file(profilePic) to other
+// to be able to send as multipartfile
 class Staff {
-  final CustomUser customuser;
-  final int id;
-  final String profilePic;
-  final String gender;
-  final String address;
-  Staff({
+  CustomUser customuser;
+  int id;
+  File profilePic;
+  String phoneNo;
+  String dob;
+  String gender;
+  String address;
+
+  Staff(
+      {required this.customuser,
+      required this.id,
+      required this.profilePic,
+      required this.gender,
+      required this.address,
+      required this.phoneNo,
+      required this.dob});
+}
+
+//class for receiving staff objects from backend
+// backend returns imagepath as string
+class Staffs {
+  CustomUser customuser;
+  int id = 0;
+  String phoneNo;
+  String dob;
+  String profilePic;
+  String gender;
+  String address;
+
+  Staffs({
     required this.customuser,
     required this.id,
     required this.profilePic,
     required this.gender,
     required this.address,
+    required this.dob,
+    required this.phoneNo,
   });
-
-  Staff copyWith({
-    CustomUser? customuser,
-    int? id,
-    String? profilePic,
-    String? gender,
-    String? address,
-  }) {
-    return Staff(
-      customuser: customuser ?? this.customuser,
-      id: id ?? this.id,
-      profilePic: profilePic ?? this.profilePic,
-      gender: gender ?? this.gender,
-      address: address ?? this.address,
-    );
-  }
 
   Map<String, dynamic> toMap() {
     return {
@@ -39,46 +52,33 @@ class Staff {
       'profile_pic': profilePic,
       'gender': gender,
       'address': address,
+      'dob': dob,
+      'phone_number': phoneNo
     };
   }
 
-  factory Staff.fromMap(Map<String, dynamic> map) {
-    return Staff(
+  factory Staffs.fromMap(Map<dynamic, dynamic> map) {
+    return Staffs(
       customuser: CustomUser.fromMap(map['customuser']),
       id: map['id'],
       profilePic: map['profile_pic'],
       gender: map['gender'],
+      dob: map['dob'],
+      phoneNo: map['phone_number'],
       address: map['address'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Staff.fromJson(String source) => Staff.fromMap(json.decode(source));
+  factory Staffs.fromJson(dynamic source) =>
+      Staffs.fromMap(json.decode(source));
 
-  @override
-  String toString() {
-    return 'Staff(customuser: $customuser, id: $id, profile_pic: $profilePic, gender: $gender, address: $address)';
-  }
+  static List<Staffs> staffFromJson(dynamic source) =>
+      // Staff.staffFromJson(source);
+      List<Staffs>.from(json.decode(source).map((x) => Staffs.fromMap(x)));
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Staff &&
-        other.customuser == customuser &&
-        other.id == id &&
-        other.profilePic == profilePic &&
-        other.gender == gender &&
-        other.address == address;
-  }
-
-  @override
-  int get hashCode {
-    return customuser.hashCode ^
-        id.hashCode ^
-        profilePic.hashCode ^
-        gender.hashCode ^
-        address.hashCode;
-  }
+  static List<Staffs> staffFromMap(dynamic source) =>
+      // Staff.staffFromJson(source);
+      List<Staffs>.from(source.map((x) => Staffs.fromMap(x)));
 }
