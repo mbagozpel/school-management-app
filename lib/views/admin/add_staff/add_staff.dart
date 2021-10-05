@@ -10,12 +10,14 @@ class AddStaff extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
     return SafeArea(
       child: Column(
         children: [
           const Header(),
           Expanded(
             child: ListView(
+              controller: _scrollController,
               // shrinkWrap: true,
               children: [
                 Padding(

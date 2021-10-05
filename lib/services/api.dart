@@ -39,6 +39,7 @@ class Api {
   static String checkUsernameExists = "${baseUrl}check_username_exists";
   static String getClassStudents = "${baseUrl}get_class_students";
   static String getAttendanceDates = "${baseUrl}get_attendance_dates";
+  static String getTerms = "${baseUrl}get_terms";
   static String getStaffPermissionReport =
       "${baseUrl}get_staff_permission_report";
   static String getStudentPermissionReport =

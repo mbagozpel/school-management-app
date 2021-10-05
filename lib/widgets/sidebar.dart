@@ -11,6 +11,7 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
     final _size = MediaQuery.of(context).size;
     return Drawer(
       child: Container(
@@ -28,6 +29,7 @@ class SideBar extends StatelessWidget {
             ),
             Expanded(
               child: ListView.separated(
+                  controller: _scrollController,
                   itemBuilder: (context, index) => DrawerListTile(
                         model: sideBarList[index],
                         index: index,

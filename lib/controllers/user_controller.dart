@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:school_management_app/models/classes.dart';
 import 'package:school_management_app/models/customuser.dart';
+import 'package:school_management_app/models/session.dart';
 import 'package:school_management_app/models/staff.dart';
+import 'package:school_management_app/models/student.dart';
 import 'package:school_management_app/services/api_manage_delete.dart';
 import 'package:school_management_app/services/api_manage_get.dart';
 import 'package:school_management_app/services/api_manager_post.dart';
@@ -18,6 +21,7 @@ var user = CustomUser();
 class UserController extends GetxController {
   final RxBool _isVisible = false.obs;
   DateTime selectedDate = DateTime.now();
+
   List<Staffs> staffLists = [];
   // get staffLists => _staffLists;
   Staff staff = Staff(
@@ -28,6 +32,7 @@ class UserController extends GetxController {
       gender: '',
       id: 0,
       profilePic: File(''));
+
   final staffFormKey = GlobalKey<FormState>();
   var isLoading = true.obs;
   ImagePicker? _imagePicker;

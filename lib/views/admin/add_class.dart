@@ -6,6 +6,7 @@ import 'package:school_management_app/controllers/other_controllers.dart';
 import 'package:school_management_app/controllers/user_controller.dart';
 import 'package:school_management_app/models/staff.dart';
 import 'package:school_management_app/services/api_manage_get.dart';
+import 'package:school_management_app/views/admin/manage_class.dart';
 import 'package:school_management_app/widgets/default_button.dart';
 import 'package:school_management_app/widgets/header.dart';
 
@@ -16,6 +17,7 @@ class AddClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final OtherControllers _otherController = OtherControllers();
+    final ScrollController _scrollController = ScrollController();
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Column(
@@ -23,6 +25,7 @@ class AddClass extends StatelessWidget {
           const Header(),
           Expanded(
               child: ListView(
+            controller: _scrollController,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -103,7 +106,8 @@ class AddClass extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              const ManageClass()
             ],
           ))
         ],

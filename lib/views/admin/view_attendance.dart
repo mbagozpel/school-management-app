@@ -11,6 +11,7 @@ class ViewAttendance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Column(
@@ -18,6 +19,7 @@ class ViewAttendance extends StatelessWidget {
           const Header(),
           Expanded(
               child: ListView(
+            controller: _scrollController,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),

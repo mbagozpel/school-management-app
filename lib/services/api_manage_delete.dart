@@ -36,4 +36,20 @@ class ApiManagerDelete {
       showSnackBar(context, text: e.toString());
     }
   }
+
+  static deleteSubject(subjectId, BuildContext context) async {
+    try {
+      var response = await dio.delete(
+        '${Api.baseUrl}delete_subject/$subjectId',
+      );
+
+      if (response.statusCode == 200) {
+        showSnackBar(context, text: 'Subject deleted successfully');
+      } else {
+        showSnackBar(context, text: 'An error occurred');
+      }
+    } catch (e) {
+      showSnackBar(context, text: e.toString());
+    }
+  }
 }

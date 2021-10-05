@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:school_management_app/views/admin/manage_class.dart';
+
 import 'package:school_management_app/views/admin/add_class.dart';
 import 'package:school_management_app/views/admin/add_session.dart';
 import 'package:school_management_app/views/admin/add_staff/add_staff.dart';
@@ -10,7 +10,7 @@ import 'package:school_management_app/views/admin/add_subject.dart';
 import 'package:school_management_app/views/admin/dashboard.dart';
 import 'package:school_management_app/views/admin/manage_staffs.dart';
 import 'package:school_management_app/views/admin/manage_students.dart';
-import 'package:school_management_app/views/admin/manage_subject.dart';
+
 import 'package:school_management_app/views/admin/staff_feedback.dart';
 import 'package:school_management_app/views/admin/staff_permission.dart';
 import 'package:school_management_app/views/admin/student_feedback.dart';
@@ -18,9 +18,9 @@ import 'package:school_management_app/views/admin/student_permission.dart';
 import 'package:school_management_app/views/admin/view_attendance.dart';
 import 'package:school_management_app/views/staff/add_result.dart';
 import 'package:school_management_app/views/staff/create_assignment.dart';
-import 'package:school_management_app/views/staff_suggestion.dart';
+import 'package:school_management_app/views/staff/staff_suggestion.dart';
 import 'package:school_management_app/views/staff/take_attendance.dart';
-import 'package:school_management_app/views/take_permission.dart';
+import 'package:school_management_app/views/staff/take_permission.dart';
 import 'package:school_management_app/views/staff/update_attendance.dart';
 import 'package:school_management_app/views/student/student_view_attendance.dart';
 
@@ -44,22 +44,20 @@ List<SideBarModel> adminSideBar = [
       title: 'Manage Staffs',
       widget: ManageStaff(),
       icon: FontAwesomeIcons.user),
+  // const SideBarModel(
+  //     title: 'Add Class',
+  //     widget: AddClass(),
+  //     icon: FontAwesomeIcons.addressBook),
   const SideBarModel(
-      title: 'Add Class',
-      widget: AddClass(),
-      icon: FontAwesomeIcons.addressBook),
-  const SideBarModel(
-      title: 'Manage Class',
-      widget: ManageClass(),
-      icon: FontAwesomeIcons.user),
-  const SideBarModel(
-      title: 'Add Subject', widget: AddSubject(), icon: FontAwesomeIcons.book),
+      title: 'Manage Class', widget: AddClass(), icon: FontAwesomeIcons.user),
+  // const SideBarModel(
+  //     title: 'Add Subject', widget: AddSubject(), icon: FontAwesomeIcons.book),
   const SideBarModel(
       title: 'Manage Subject',
-      widget: ManageSubject(),
+      widget: AddSubject(),
       icon: FontAwesomeIcons.user),
-  SideBarModel(
-      title: 'Add Session',
+  const SideBarModel(
+      title: 'Manage Session',
       widget: AddSession(),
       icon: FontAwesomeIcons.addressCard),
   const SideBarModel(
@@ -126,7 +124,7 @@ List<SideBarModel> staffSideBar = [
       widget: StaffSuggestions(),
       icon: FontAwesomeIcons.comment),
   const SideBarModel(
-      title: 'Add Result',
+      title: 'Manage Result',
       widget: AddResult(),
       icon: FontAwesomeIcons.bookReader),
   const SideBarModel(

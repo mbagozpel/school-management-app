@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:school_management_app/constants/theme_constants.dart';
 
 import 'package:school_management_app/views/admin/admin_base.dart';
+import 'package:school_management_app/views/staff/staff_base.dart';
 
 // import 'package:school_management_app/controllers/menu_controller.dart';
 
@@ -84,7 +85,7 @@ class MyApp extends StatelessWidget {
               // return const SampleItemDetailsView();
               // case SampleItemListView.routeName:
               default:
-                return const AdminBase();
+                return const StaffBase();
               // SampleItemListView();
             }
           },

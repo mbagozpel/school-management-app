@@ -10,6 +10,7 @@ class StaffPermissions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _scrollController = ScrollController();
     final _size = MediaQuery.of(context).size;
     return SafeArea(
       child: Column(
@@ -17,6 +18,7 @@ class StaffPermissions extends StatelessWidget {
           const Header(),
           Expanded(
             child: ListView(
+              controller: _scrollController,
               children: [
                 Container(
                   margin:

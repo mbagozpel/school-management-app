@@ -3,12 +3,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:school_management_app/constants/colors.dart';
 import 'package:school_management_app/controllers/other_controllers.dart';
-import 'package:school_management_app/models/classes.dart';
-import 'package:school_management_app/views/admin/edit_class.dart';
 
-class ManageClass extends StatelessWidget {
-  static const routename = '/manageClass';
-  const ManageClass({Key? key}) : super(key: key);
+import 'package:school_management_app/models/session.dart';
+import 'package:school_management_app/views/admin/edit_session.dart';
+
+class ManageSession extends StatelessWidget {
+  static const routename = '/manageSession';
+  const ManageSession({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ManageClass extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'All Classes',
+              'All Sessions',
               style: Theme.of(context)
                   .textTheme
                   .headline6!
@@ -36,35 +37,31 @@ class ManageClass extends StatelessWidget {
                 builder: (controller) {
                   return DataTable(
                     // headingRowColor: Colors.green,
-                    columnSpacing: _size.width * 0.06,
+                    columnSpacing: _size.width * 0.08,
                     showCheckboxColumn: true,
                     columns: const [
                       DataColumn(label: Text('SN'), numeric: true),
                       DataColumn(
-                        label: Text('Class Title'),
+                        label: Text('Session Start Year'),
                       ),
                       DataColumn(
-                        label: Text('Class Teacher'),
+                        label: Text('Session End Year'),
                       ),
                       DataColumn(
                         label: Text('Edit'),
                       ),
-                      DataColumn(
-                        label: Text('Delete'),
-                      )
                     ],
-                    rows: List.generate(controller.classLists.length, (index) {
-                      Classes classObj = controller.classLists[index];
+                    rows:
+                        List.generate(controller.sessionLists.length, (index) {
+                      SessionYearModel session = controller.sessionLists[index];
                       return DataRow(cells: [
                         DataCell(
                           Text(
                             (index + 1).toString(),
                           ),
                         ),
-                        DataCell(Text(classObj.className)),
-                        DataCell(Text(classObj.staff.customuser.lastName +
-                            ' ' +
-                            classObj.staff.customuser.firstName)),
+                        DataCell(Text(session.sessionStartYear)),
+                        DataCell(Text(session.sessionEndYear)),
                         DataCell(
                           IconButton(
                             icon: const Icon(FontAwesomeIcons.edit,
@@ -72,19 +69,13 @@ class ManageClass extends StatelessWidget {
                             onPressed: () {
                               showDialog(
                                   context: context,
-                                  builder: (BuildContext context) => EditClass(
-                                        classObj: classObj,
+                                  builder: (BuildContext context) =>
+                                      EditSession(
+                                        session: session,
                                       ));
                             },
                           ),
                         ),
-                        DataCell(IconButton(
-                          icon: const Icon(FontAwesomeIcons.trash,
-                              color: Colors.red, size: 15),
-                          onPressed: () {
-                            controller.classDelete(classObj.id, context);
-                          },
-                        ))
                       ]);
                     }),
                   );

@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:school_management_app/constants/colors.dart';
+import 'package:school_management_app/controllers/student_controller.dart';
 
-import 'package:school_management_app/controllers/user_controller.dart';
+class StudentSelectPicture extends StatelessWidget {
+  final StudentController controller;
 
-class SelectPicture extends StatelessWidget {
-  final UserController controller;
-
-  const SelectPicture({Key? key, required this.controller}) : super(key: key);
+  const StudentSelectPicture({Key? key, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     // final UserController _controller = Get.put(UserController());
     return Column(children: [
-      GetBuilder<UserController>(
-        init: UserController(),
+      GetBuilder<StudentController>(
+        init: StudentController(),
         initState: (_) {},
         builder: (_controller) {
           return Stack(
@@ -42,7 +42,7 @@ class SelectPicture extends StatelessWidget {
                     child: IconButton(
                       icon: const Icon(Icons.add),
                       onPressed: () {
-                        _controller.selectFiles(controller.staff);
+                        _controller.selectFiles(controller.student);
                       },
                     ),
                   ),
